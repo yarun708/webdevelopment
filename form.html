@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registartion Form</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+<h1>Registration Form</h1>
+<div class="register">
+	<form name="form" action="submitted.html" method="post" onsubmit="return validate()";>
+    <h2>Register here</h2>
+
+		<label>Fullname   </label>
+			 <input type="text" name="full_name" id="fullname" value="" class="" placeholder="Fullname" autocomplete="off"><br>
+                                 <div class="clear"></div>		
+		<label>Email      </label>
+			<input type="email" name="email" id="email" value="" class="" placeholder="Email"><br>
+		                    <div class="clear"></div>		
+                                                <div class="clear"></div>		
+		<label>Password   </label>
+			<input type="password" name="password" id="password" value="" class="" placeholder="Password"><br>
+    	                    <div class="clear"></div>		
+                                                <div class="clear"></div>		
+		<label>Confirm Password   </label>
+	 		<input type="password" name="cpassword" id="cpassword" value="" class="" placeholder="Confirm password"  ><br>
+                                <div class="clear"></div>		
+            <div class="clear"></div>
+		<label>Date Of Brith </label>
+        <select name="year" class="date">
+						<option value="year">year</option>
+						<option value="1998">1998</option>
+						<option value="1999">1999</option>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+					</select>
+                    <select name="day" class="date">
+						<option value="day">day</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+					</select>			
+        		<select name="month"  class="date">
+						<option value="month">month</option>
+						<option value="Janurary">Janurary</option>
+						<option value="Febrary">Febrary</option>
+						<option value="March">March</option>
+						<option value="April">April</option>
+					</select>
+					
+						
+<div class="clear"></div>		
+		<label>Education  </label>
+        	<select name="sel" id="education"<hr />
+>
+			<option value="">choose</option>
+			<option value="SLC">SLC</option>
+			<option value="Plus 2" >Plus 2</option>
+			<option value="Bachelor">bachelor</option>
+			<option value="Master">Master</option>
+		</select><br>
+                            <div class="clear"></div>		
+                                                <div class="clear"></div>		
+
+		<label class="hob">Hobbies  </label> 
+			 <input type="checkbox" name="hob" value="Music"   class="hobbies" id="music"><span class="hobby">Music</span>
+			 <input type="checkbox" name="hob" value="Dance" class="hobbies" id="dance"> <span class="hobby">Dance</span>
+			 <input type="checkbox" name="hob" value="Sports" class="hobbies" id="sports"><span class="hobby">Sports</span>
+			 <input type="checkbox" name="hob" value="Others" class="hobbies" id="oth"><span class="hobby">Others</span><br />
+                                 <div class="clear"></div>		
+                    <div class="clear"></div>		
+		<label class="gen">Gender   </label>
+              <input type="radio" name="gender" value="Male"  class="ge" id="male" ><span class="gender">Male</span>
+			  <input type="radio" name="gender"  value="Female" class="ge" id="female"><span class="gender">Female</span>
+              <input type="radio" name="gender"  value="Others" class="ge" id="others"><span class="gender">Others</span><br /><br />
+                                  <div class="clear"></div>		
+
+              
+        <input type="checkbox" name="agree" value=""  id="agreement"  ><span id="agree">I agree with all terms and conditions</span><br />
+
+		<input type="submit" name="submit" value="Register" id="submit">
+		<input type="reset" value="clear form" id="clear">
+		
+	</form>
+    </div>
+
+	<script>
+		function validate(){
+			var fullname = document.getElementById('fullname'). value;
+			var email = document.getElementById('email'). value;
+			var pass= document.getElementById('password'). value;
+			var confirmpass= document.getElementById('cpassword'). value;
+			var radio1= document.getElementById('male'). checked;
+			
+			var radio2= document.getElementById('female'). checked;
+			var radio3= document.getElementById('others'). checked;
+			var music= document.getElementById('music'). checked;	
+			var dance= document.getElementById('dance'). checked;	
+			var sports= document.getElementById('sports'). checked;	
+			var other= document.getElementById('oth'). checked;		
+			
+			if (fullname=='') {
+				alert("please enter ur fullname");
+				document.getElementById('fullname').focus();
+				return false;
+			}
+			else if (email=='') {
+				alert("please enter ur email");
+				document.getElementById('email').focus();
+				return false;
+			}
+			else if(pass==''){
+				alert("please enter ur password ");
+				document.getElementById('password').focus();
+				return false;
+			}
+			else if (pass.length<6) {
+				alert("please enter ur password more than 6 length");
+				document.getElementById('password').focus();
+				return false;
+			}
+			else if(document.getElementById('cpassword').value==''){
+				alert("please enter ur confirm password length");
+				document.getElementById('cpassword').focus();
+				return false;
+			}
+			else if (confirmpass.length<6) {
+				alert("please enter ur password more than 6 length");
+				document.getElementById('cpassword').focus();
+				return false;
+				
+			}
+			else if(pass!=confirmpass){
+				alert("password unmatch");
+				return false;
+				}
+			else if(form.month.selectedIndex==0){
+				alert("please select ur date of birth month");
+					return false;
+				}
+			else if(form.day.selectedIndex==0){
+				alert("please select ur date of birth day");
+					return false;
+				}
+
+			else if(form.year.selectedIndex==0){
+				alert("please select ur date of birth year");
+					return false;
+				}
+			else if(document.getElementById('education').selectedIndex==0){
+				alert("please select ur education");
+					return false;
+				}
+			else if(music==false || dance==false || sports==false || others==false)
+				{
+					alert("please select ur hobby.");
+					return false;
+					}
+			
+			else if((radio1=='')&&(radio2=='')&&(radio3==''))
+			{
+				alert("select your gender.");
+				return false;
+				}
+				else if(document.getElementById('agreement').checked==false){
+					alert("you have to agree to proceed.");
+					return false;
+					}
+			else
+				{
+					return true;
+				}
+		}
+		
+				
+</script>
+</body>
+</html>
